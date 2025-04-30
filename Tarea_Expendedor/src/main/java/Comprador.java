@@ -22,7 +22,7 @@ class Comprador{
     public int cuantoVuelto(){
         return this.vuelto;
     }
-    public String queBebiste(){
+    public String queConsumiste(){
         return (this.sonido != null) ? this.sonido : null;
     }
 }
