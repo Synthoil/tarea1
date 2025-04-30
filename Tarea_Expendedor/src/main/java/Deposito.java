@@ -1,11 +1,13 @@
 import java.util.ArrayList;
-class Deposito{
-    private ArrayList<Producto> productos = new ArrayList<>();
 
-    public void addProducto(Producto b){
-        productos.add(b);
+class Deposito<T> {
+    private ArrayList<T> elementos = new ArrayList<>();
+
+    public void addElemento(T elemento) {
+        elementos.add(elemento);
     }
-    public Producto getProducto(){
-        return productos.isEmpty() ? null : productos.remove(0);
+
+    public T getElemento() {
+        return elementos.isEmpty() ? null : elementos.remove(0);
     }
 }
