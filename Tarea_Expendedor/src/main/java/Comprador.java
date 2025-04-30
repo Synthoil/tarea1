@@ -2,15 +2,15 @@ class Comprador{
     private String sonido;
     private int vuelto;
 
-    public Comprador(Moneda m, int cualBebida, Expendedor exp){
+    public Comprador(Moneda m, int cualProducto, Expendedor exp){
         this.sonido = null;
         this.vuelto = 0;
 
         if(m != null) {
-            Bebida b = exp.comprarBebida(m, cualBebida);
+            Producto b = exp.comprarProducto(m, cualProducto);
 
             if(b != null) {
-                this.sonido = b.beber();
+                this.sonido = b.consumir();
             }
 
             Moneda monedaVuelto;

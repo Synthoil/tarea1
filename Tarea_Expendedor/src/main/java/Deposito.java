@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 class Deposito{
-    private ArrayList<Bebida> bebidas = new ArrayList<>();
+    private ArrayList<Producto> productos = new ArrayList<>();
 
-    public void addBebida(Bebida b){
-        bebidas.add(b);
+    public void addProducto(Producto b){
+        productos.add(b);
     }
-    public Bebida getBebida(){
-        return bebidas.isEmpty() ? null : bebidas.remove(0);
+    public Producto getProducto(){
+        return productos.isEmpty() ? null : productos.remove(0);
     }
 }
