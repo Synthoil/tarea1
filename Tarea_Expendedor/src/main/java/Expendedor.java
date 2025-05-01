@@ -14,8 +14,7 @@ class Expendedor {
     private int precioProducto;
 
 
-    public Expendedor(int cantidadProducto, int precioProducto){
-        this.precioProducto = precioProducto;
+    public Expendedor(int cantidadProducto){
         coca = new Deposito<>();
         sprite = new Deposito<>();
         fanta = new Deposito<>();
@@ -37,6 +36,24 @@ class Expendedor {
             return null;
         }
         int valorMoneda = m.getValor();
+
+        switch (cual) {
+            case COCA:
+                this.precioProducto = EnumeracionPrecios.valueOf("COCA").getPrecio();
+                break;
+            case SPRITE:
+                this.precioProducto = EnumeracionPrecios.valueOf("SPRITE").getPrecio();
+                break;
+            case FANTA:
+                this.precioProducto = EnumeracionPrecios.valueOf("FANTA").getPrecio();
+                break;
+            case SNICKERS:
+                this.precioProducto = EnumeracionPrecios.valueOf("SNICKERS").getPrecio();
+                break;
+            case SUPER8:
+                this.precioProducto = EnumeracionPrecios.valueOf("SUPER8").getPrecio();
+            default:
+        }
 
         if (valorMoneda < precioProducto){
             monVu.addElemento(m);
