@@ -35,7 +35,7 @@ class Expendedor {
         if(m == null){
             throw new PagoIncorrectoException("La moneda no puede ser null");
         }
-
+        
         if(cual < 1 || cual > EnumeracionPrecios.values().length){
             throw new NoHayProductoException("Numero de producto no valido");
         }
