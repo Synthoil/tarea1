@@ -2,21 +2,19 @@ class Comprador{
     private String sonido;
     private int vuelto;
 
-    public Comprador(Moneda m, int cualProducto, Expendedor exp){
+    public Comprador(Moneda m, int cualProducto, Expendedor exp) throws PagoIncorrectoException, PagoInsuficienteException, NoHayProductoException{
         this.sonido = null;
         this.vuelto = 0;
 
-        if(m != null) {
-            Producto b = exp.comprarProducto(m, cualProducto);
+        Producto b = exp.comprarProducto(m, cualProducto);
 
-            if(b != null) {
-                this.sonido = b.consumir();
-            }
+        if(b != null){
+            this.sonido = b.consumir();
+        }
 
-            Moneda monedaVuelto;
-            while((monedaVuelto = exp.getVuelto()) != null) {
-                this.vuelto += monedaVuelto.getValor();
-            }
+        Moneda monedaVuelto;
+        while((monedaVuelto = exp.getVuelto()) != null){
+            this.vuelto += monedaVuelto.getValor();
         }
     }
     public int cuantoVuelto(){
