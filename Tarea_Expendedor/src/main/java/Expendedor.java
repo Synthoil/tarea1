@@ -14,8 +14,7 @@ class Expendedor {
     private int precioProducto;
 
 
-    public Expendedor(int cantidadProducto, int precioProducto){
-        this.precioProducto = precioProducto;
+    public Expendedor(int cantidadProducto){
         coca = new Deposito<>();
         sprite = new Deposito<>();
         fanta = new Deposito<>();
@@ -36,39 +35,35 @@ class Expendedor {
         if(m == null){
             throw new PagoIncorrectoException("La moneda no puede ser null");
         }
-        int valorMoneda = m.getValor();
 
-        if (valorMoneda < precioProducto){
+        if(cual < 1 || cual > EnumeracionPrecios.values().length){
+            throw new NoHayProductoException("Numero de producto no valido");
+        }
+
+        this.precioProducto = EnumeracionPrecios.values()[cual - 1].getPrecio();
+
+        if (m.getValor() < precioProducto){
             monVu.addElemento(m);
             throw new PagoInsuficienteException("Dinero insuficiente");
         }
-        Producto temp = null;
-        switch (cual) {
-            case COCA:
-                temp = coca.getElemento();
-                break;
-            case SPRITE:
-                temp = sprite.getElemento();
-                break;
-            case FANTA:
-                temp = fanta.getElemento();
-                break;
-            case SNICKERS:
-                temp = snickers.getElemento();
-                break;
-            case SUPER8:
-                temp = super8.getElemento();
-                break;
-            default:
-                monVu.addElemento(m);
-                throw new NoHayProductoException("Numero de producto no valido");
-        }
+
+        Deposito<?> deposito;
+        deposito = switch (cual) {
+            case COCA -> coca;
+            case SPRITE -> sprite;
+            case FANTA -> fanta;
+            case SNICKERS -> snickers;
+            case SUPER8 -> super8;
+            default -> throw new NoHayProductoException("Producto no existe");
+        };
+
+        Producto temp = (Producto) deposito.getElemento();
         if(temp == null){
             monVu.addElemento(m);
             throw new NoHayProductoException("No hay existencias");
         }
 
-        int vuelto = valorMoneda - precioProducto;
+        int vuelto = m.getValor() - precioProducto;
         for(int i = 0; i < vuelto / 100; i++){
             monVu.addElemento(new Moneda100());
         }
