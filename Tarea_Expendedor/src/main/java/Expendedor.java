@@ -31,48 +31,48 @@ class Expendedor {
             super8.addElemento(new Sprite(500+i));
         }
     }
-    
-    public Producto comprarProducto(Moneda m, int cual){
+
+    public Producto comprarProducto(Moneda m, int cual) throws  PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException{
         if(m == null){
-            return null;
+            throw new PagoIncorrectoException("La moneda no puede ser null");
         }
         int valorMoneda = m.getValor();
 
         if (valorMoneda < precioProducto){
             monVu.addElemento(m);
-            return null;
+            throw new PagoInsuficienteException("Dinero insuficiente");
         }
-        Producto b = null;
+        Producto temp = null;
         switch (cual) {
             case COCA:
-                b = coca.getElemento();
+                temp = coca.getElemento();
                 break;
             case SPRITE:
-                b = sprite.getElemento();
+                temp = sprite.getElemento();
                 break;
             case FANTA:
-                b = fanta.getElemento();
+                temp = fanta.getElemento();
                 break;
             case SNICKERS:
-                b = snickers.getElemento();
+                temp = snickers.getElemento();
                 break;
             case SUPER8:
-                b = super8.getElemento();
+                temp = super8.getElemento();
                 break;
             default:
                 monVu.addElemento(m);
-                return null;
+                throw new NoHayProductoException("Numero de producto no valido");
         }
-        if(b == null){
+        if(temp == null){
             monVu.addElemento(m);
-            return null;
+            throw new NoHayProductoException("No hay existencias");
         }
 
         int vuelto = valorMoneda - precioProducto;
         for(int i = 0; i < vuelto / 100; i++){
             monVu.addElemento(new Moneda100());
         }
-        return b;
+        return temp;
     }
     public Moneda getVuelto() {
         return monVu.getElemento();
