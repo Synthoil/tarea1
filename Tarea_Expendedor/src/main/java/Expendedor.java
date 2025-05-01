@@ -31,7 +31,7 @@ class Expendedor {
             super8.addElemento(new Sprite(500+i));
         }
     }
-
+    
     public Producto comprarProducto(Moneda m, int cual){
         if(m == null){
             return null;
