@@ -25,9 +25,9 @@ class Expendedor {
         for(int i = 0; i < cantidadProducto; i++){
             coca.addElemento(new CocaCola(100+i));
             sprite.addElemento(new Sprite(200+i));
-            fanta.addElemento(new Sprite(300+i));
-            snickers.addElemento(new Sprite(400+i));
-            super8.addElemento(new Sprite(500+i));
+            fanta.addElemento(new Fanta(300+i));
+            snickers.addElemento(new Snickers(400+i));
+            super8.addElemento(new Super8(500+i));
         }
     }
 
