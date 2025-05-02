@@ -1,6 +1,17 @@
 import java.util.ArrayList;
 
+/**
+ * Clase main usada para el testeo de cada situacion posible.
+ * mediante un expendedor y distintos tipos de moneda.
+ * Se simulan distintas situaciones como compras exitosas, errores por falta de dinero, moneda nula y falta de stock.
+ */
+
 public class Main {
+
+    /**
+     * Metodo principal del programa. Crea un expendedor y realiza las pruebas.
+     * @param args Argumentos (Sin uso).
+     */
     public static void main(String[] args) {
         Expendedor exp = new Expendedor(1); // solo un producto de cada tipo
 

@@ -1,3 +1,9 @@
+/**
+ * Clase que representa una maquina expendedora que contiene los productos.
+ * Los productos se representan con constantes de 1 a 5.
+ * El expendedor gestiona la compra, el vuelto y los casos erroneos o imposibles.
+ * */
+
 class Expendedor {
     public static final int COCA = 1;
     public static final int SPRITE = 2;
@@ -13,7 +19,11 @@ class Expendedor {
     private Deposito<Moneda> monVu;
     private int precioProducto;
 
-
+    /**
+     * Constructor que agrega los productos a depositos.
+     *
+     * @param cantidadProducto Cantidad de los productos que se tendrán en los depositos
+     */
     public Expendedor(int cantidadProducto){
         coca = new Deposito<>();
         sprite = new Deposito<>();
@@ -31,11 +41,21 @@ class Expendedor {
         }
     }
 
+    /**
+     * Entrega un producto al usar una moneda y seleccionar cual producto.
+     *
+     * @param m Moneda (Con cierto valor) entregada por el comprador.
+     * @param cual Tipo de producto deseado, representado por una constante de 1 a 5.
+     * @return El producto comprado.
+     * @throws PagoInsuficienteException Si el valor de la moneda es menor al precio del producto.
+     * @throws PagoIncorrectoException   Si la moneda es "null"
+     * @throws NoHayProductoException    Si no hay stock disponible o el código es invalido.
+     */
     public Producto comprarProducto(Moneda m, int cual) throws  PagoInsuficienteException, PagoIncorrectoException, NoHayProductoException{
         if(m == null){
             throw new PagoIncorrectoException("La moneda no puede ser null");
         }
-        
+
         if(cual < 1 || cual > EnumeracionPrecios.values().length){
             throw new NoHayProductoException("Numero de producto no valido");
         }
@@ -69,6 +89,12 @@ class Expendedor {
         }
         return temp;
     }
+
+    /**
+     * Retorna una moneda del vuelto (Monedas de 100).
+     *
+     * @return Una moneda del depósito de vuelto.
+     */
     public Moneda getVuelto() {
         return monVu.getElemento();
     }
