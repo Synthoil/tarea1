@@ -38,7 +38,7 @@ public class MainInteracivo {
                 case 1000:
                     moneda = new Moneda1000();
                     break;
-
+                default: break;
             }
             try{
                 Comprador c = new Comprador(moneda,opcion,exp);//Compra el producto con el valor y en el deposito correspondiente
