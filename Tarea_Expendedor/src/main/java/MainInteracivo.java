@@ -29,8 +29,10 @@ public class MainInteracivo {
             switch (valorMoneda){
                 case 100:
                     moneda = new Moneda100();
+                    break;
                 case 500:
                     moneda = new Moneda500();
+                    break;
                 case 1000:
                     moneda = new Moneda1000();
             }
@@ -40,14 +42,17 @@ public class MainInteracivo {
                 System.out.println("Producto que consumió : "+ c.queConsumiste());
                 System.out.println("Su vuelto es de : "+c.cuantoVuelto());
             } catch (PagoIncorrectoException e){
-                System.out.println("Ups "+ e.getMessage());
+                System.out.println("Lo sentimos "+ e.getMessage());
             }catch (PagoInsuficienteException e){
-                System.out.println("Ups " + e.getMessage());
+                System.out.println("Lo sentimos " + e.getMessage());
             }catch (NoHayProductoException e){
-                System.out.println("Disculpe "+ e.getMessage());
+                System.out.println("Lo sentimos "+ e.getMessage());
             }catch (Exception e){
-                System.out.println("Error inesperado : "+ e.getMessage());
+                System.out.println("Error : "+ e.getMessage());
             }
+            System.out.println("Si no quiere comprar mas presione '0', de lo contrario ingrese 10");
+            opcion = scanner.nextInt();
+
         }
         scanner.close();
     }
