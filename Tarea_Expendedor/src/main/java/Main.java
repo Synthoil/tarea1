@@ -47,5 +47,15 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error en comprador 4: " + e.getMessage());
         }
+
+        ArrayList<Moneda> monedas = new ArrayList<>();
+        monedas.add(new Moneda1000());
+        monedas.add(new Moneda500());
+        monedas.add(new Moneda100());
+
+        monedas.sort(null);
+        for(Moneda m :monedas){
+            System.out.println("$" + m.getValor());
+        }
     }
 }
