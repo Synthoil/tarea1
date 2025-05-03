@@ -1,7 +1,17 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Clase main usada para simular la situacion de comprar y comer productos
+ * mediante un expendedor, un selector de producto y moneda.
+ * Se controlan las excepciones como errores por falta de dinero, moneda nula y falta de stock.
+ */
 public class MainInteracivo {
+
+    /**
+     * Metodo principal del programa. Crea un expendedor y permite interactuar con el.
+     * @param args Argumentos (Sin uso).
+     */
     public static void main(String[] args){
         Expendedor exp = new Expendedor(0); // 5 productos de cada tipo
         Scanner scanner = new Scanner(System.in);

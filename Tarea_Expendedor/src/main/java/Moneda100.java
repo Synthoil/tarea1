@@ -3,6 +3,7 @@
  */
 
 class Moneda100 extends Moneda{
+
     /**
      * Obtiene las propiedades de moneda.
      */

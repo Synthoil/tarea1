@@ -2,6 +2,7 @@
  * Objeto tipo Bebida con sabor "cocacola".
  */
 class CocaCola extends Bebida{
+
     /**
      * Construye la bebida del sabor con un numero de serie especifico.
      * @param serie Numero de serie

@@ -1,5 +1,5 @@
 /**
- * Excepcion lanzada cuando la moneda es tipo "null".
+ * Excepcion lanzada cuando la moneda es tipo "null" o no es valida.
  */
 
 public class PagoInsuficienteException extends Exception {

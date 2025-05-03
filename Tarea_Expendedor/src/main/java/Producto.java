@@ -3,6 +3,7 @@
  */
 
 abstract class Producto {
+
     /**
      * Numero asociado al producto.
      */
