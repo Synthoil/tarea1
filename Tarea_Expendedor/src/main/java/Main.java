@@ -38,11 +38,8 @@ public class Main {
             Comprador c3 = new Comprador(null, Expendedor.FANTA, exp);
         } catch (PagoIncorrectoException e) {
             System.out.println("Pago incorrecto de comprador 3: " + e.getMessage());
-
-            //System.out.println("Aqui tiene su moneda: " + moneda.getValor()); aca en moneda.getvalor es donde no se
         } catch (Exception e) {
             System.out.println("Error en comprador 3: " + e.getMessage());
-            System.out.println("Aqui tiene su moneda: " + m500.getValor());
         }
 
         // Compra cuando no hay stock (ya se compró antes)
