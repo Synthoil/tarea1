@@ -28,6 +28,7 @@ public class Main {
         }
         catch (Exception e) {
             System.out.println("Error en comprador 1: " + e.getMessage());
+            System.out.println("Aqui tiene su moneda: " + m1000.getValor());
         }
 
         // Compra sin suficiente dinero
@@ -37,8 +38,10 @@ public class Main {
             System.out.println("Vuelto de comprador 2:" + c2.cuantoVuelto());
         } catch (PagoInsuficienteException e) {
             System.out.println("Pago insuficiente: " + e.getMessage());
+            System.out.println("Aqui tiene su moneda: " + m100.getValor());
         } catch (Exception e) {
             System.out.println("Error en comprador 2: " + e.getMessage());
+            System.out.println("Aqui tiene su moneda: " + m100.getValor());
         }
 
         // Compra con moneda null
@@ -55,8 +58,10 @@ public class Main {
             Comprador c4 = new Comprador(m500, Expendedor.COCA, exp);
         } catch (NoHayProductoException e) {
             System.out.println("No hay producto en la compra 4: " + e.getMessage());
+            System.out.println("Aqui tiene su moneda: " + m500.getValor());
         } catch (Exception e) {
             System.out.println("Error en comprador 4: " + e.getMessage());
+            System.out.println("Aqui tiene su moneda: " + m500.getValor());
         }
 
         ArrayList<Moneda> monedas = new ArrayList<>();
