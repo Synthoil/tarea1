@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Se simulan distintas situaciones como compras exitosas, errores por falta de dinero, moneda nula y falta de stock.
  */
 
-public class Main {
+public class MainPruebas {
 
     /**
      * Metodo principal del programa. Crea un expendedor y realiza las pruebas.
