@@ -13,17 +13,18 @@ public class MainInteracivo {
      * @param args Argumentos (Sin uso).
      */
     public static void main(String[] args){
-        Expendedor exp = new Expendedor(0); // 5 productos de cada tipo
+        Expendedor exp = new Expendedor(5); // 5 productos de cada tipo
         Scanner scanner = new Scanner(System.in);
         int opcion=-1;
 
+
         while (opcion !=0) {
             System.out.println("-------------Bienvenido a nuestro expendedor de productos-------------");
-            System.out.println("Las opciones del producto son : \n1.Bebida CocaCola");
-            System.out.println("2.Bebida Fanta");
-            System.out.println("3.Bebida Sprite");
-            System.out.println("4.Dulce Super8");
-            System.out.println("5.Dulce Snickers");
+            System.out.println("Las opciones del producto son : \n1.Bebida CocaCola " + EnumeracionPrecios.values()[0].getPrecio() + "$");
+            System.out.println("2.Bebida Sprite " + EnumeracionPrecios.values()[1].getPrecio() + "$");
+            System.out.println("3.Bebida Fanta " + EnumeracionPrecios.values()[2].getPrecio() + "$");
+            System.out.println("4.Dulce Snickers " + EnumeracionPrecios.values()[3].getPrecio() + "$");
+            System.out.println("5.Dulce Super8 " + EnumeracionPrecios.values()[4].getPrecio() + "$");
 
             System.out.println("Digite su opcion de compra o el numero '0' si desea salir");
 
